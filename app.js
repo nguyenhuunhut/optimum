@@ -1,6 +1,6 @@
 const CLIENT_ID = "1483751011071033344";
 const GUILD_ID = "1354818163879182519";
-const REDIRECT_URI = window.location.origin + window.location.pathname;
+const REDIRECT_URI = "https://nguyenhuunhut.github.io/optimum1/";
 
 const ROLE_IDS = {
   RealOG: "1417277418900819968",
