@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Optimum Role Card</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Optimum Role Card</h1>
+      <p class="subtitle">
+        Đăng nhập Discord, lấy role từ server Optimum và tải card kỷ niệm.
+      </p>
+
+      <section class="panel">
+        <div class="buttons">
+          <button id="loginBtn" class="btn primary">Kết nối Discord</button>
+          <button id="downloadBtn" class="btn" disabled>Tải card PNG</button>
+          <button id="logoutBtn" class="btn ghost" disabled>Đăng xuất</button>
+        </div>
+        <p id="status" class="status">Chưa kết nối.</p>
+      </section>
+
+      <section class="card-wrap">
+        <canvas id="roleCard" width="1000" height="560"></canvas>
+      </section>
+
+      <details class="guide">
+        <summary>Cấu hình nhanh trước khi deploy</summary>
+        <ol>
+          <li>Tạo Discord OAuth2 app và lấy <code>Client ID</code>.</li>
+          <li>
+            Trong Discord Developer Portal, thêm Redirect URL đúng domain GitHub Pages của bạn.
+          </li>
+          <li>
+            Sửa <code>CLIENT_ID</code>, <code>GUILD_ID</code> và các <code>ROLE_IDS</code> trong
+            <code>app.js</code>.
+          </li>
+          <li>Deploy thẳng repo này lên GitHub Pages.</li>
+        </ol>
+      </details>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
