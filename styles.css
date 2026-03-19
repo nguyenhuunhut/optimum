@@ -202,12 +202,60 @@ body {
   gap: 12px;
 }
 
-.identity-avatar {
-  width: 48px;
-  height: 48px;
+.identity-avatar-wrap {
+  position: relative;
+  width: 62px;
+  height: 62px;
   border-radius: 999px;
-  border: 1px solid rgba(239, 239, 239, 0.25);
+  display: grid;
+  place-items: center;
+  animation: avatar-pulse 2.2s ease-in-out infinite;
+}
+
+.identity-avatar-wrap::before {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border-radius: 999px;
+  background: conic-gradient(
+    from 0deg,
+    rgba(80, 179, 255, 0.98),
+    rgba(185, 124, 255, 0.96),
+    rgba(101, 227, 128, 0.92),
+    rgba(245, 148, 92, 0.9),
+    rgba(80, 179, 255, 0.98)
+  );
+  z-index: 0;
+  filter: saturate(1.1);
+  animation: avatar-spin 2.8s linear infinite;
+}
+
+.identity-avatar-wrap::after {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(185, 124, 255, 0.38), rgba(80, 179, 255, 0) 70%);
+  z-index: 1;
+  pointer-events: none;
+  animation: avatar-aura 2.4s ease-in-out infinite;
+}
+
+.identity-avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 999px;
+  border: 1px solid rgba(239, 239, 239, 0.52);
   object-fit: cover;
+  position: relative;
+  z-index: 3;
+  animation: avatar-float 1.8s ease-in-out infinite;
+  transition: transform 200ms ease, filter 200ms ease;
+}
+
+.identity:hover .identity-avatar {
+  transform: scale(1.05);
+  filter: saturate(1.08);
 }
 
 .identity-label {
@@ -281,6 +329,44 @@ body {
   border-radius: 10px;
   border: 1px solid rgba(239, 239, 239, 0.14);
   box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35);
+}
+
+@keyframes avatar-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes avatar-pulse {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 6px rgba(80, 179, 255, 0.28));
+  }
+  50% {
+    filter: drop-shadow(0 0 16px rgba(185, 124, 255, 0.66));
+  }
+}
+
+@keyframes avatar-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes avatar-aura {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(0.94);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.06);
+  }
 }
 
 .site-footer {
