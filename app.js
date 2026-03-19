@@ -8,33 +8,54 @@ const REDIRECT_URI =
 const ROLE_IDS = {
   MOD: "1358825437790212153",
   Chronicler: "1470691925408354476",
+  Mumbassador: "1458482724720480256",
   Optimized: "1470692400983838732",
   Refined: "1470691680998133792",
   Observer: "1469244709015912481",
+  HollywoodActor: "1441058267043463238",
   RealOG: "1417277418900819968",
+  KingOfTreasures: "1424440134148820992",
   ServerBooster: "1357033112022028289",
   Verified: "1356613189047029811",
 };
 
 const ROLE_TAGS = [
   { key: "MOD", label: "MOD", variant: "mod" },
+  { key: "Mumbassador", label: "Mumbassador", variant: "mumbassador" },
   { key: "Chronicler", label: "Chronicler", variant: "chronicler" },
   { key: "Optimized", label: "Optimized", variant: "optimized" },
   { key: "Refined", label: "Refined", variant: "refined" },
   { key: "Observer", label: "Observer", variant: "observer" },
   { key: "RealOG", label: "RealOG", variant: "realog" },
+  { key: "KingOfTreasures", label: "King of Treasures", variant: "kingtreasures" },
+  { key: "HollywoodActor", label: "Hollywood Actor", variant: "hollywood" },
   { key: "ServerBooster", label: "Server Booster", variant: "booster" },
   { key: "Verified", label: "Verified", variant: "verified" },
 ];
 
-const ROLE_ORDER = ["MOD", "Chronicler", "Optimized", "Refined", "Observer", "RealOG", "ServerBooster", "Verified"];
+const ROLE_ORDER = [
+  "MOD",
+  "Mumbassador",
+  "Chronicler",
+  "Optimized",
+  "Refined",
+  "Observer",
+  "RealOG",
+  "KingOfTreasures",
+  "HollywoodActor",
+  "ServerBooster",
+  "Verified",
+];
 const ROLE_ACCENT = {
   MOD: "#50b3ff",
   Chronicler: "#65e380",
   Optimized: "#65e380",
   Refined: "#b97cff",
+  Mumbassador: "#ff6f6f",
   Observer: "#b97cff",
+  HollywoodActor: "#ff6666",
   RealOG: "#f5945c",
+  KingOfTreasures: "#f7b84f",
   ServerBooster: "#f5945c",
   Verified: "#50b3ff",
 };
@@ -59,15 +80,30 @@ const ROLE_COPY = {
     body: "You have moved beyond observation and started creating real value. Your presence improves the quality of discussion.",
     cta: "Stay consistent, you are on the right path.",
   },
+  Mumbassador: {
+    headline: "Community ambassador.",
+    body: "You represent Optimum with energy and consistency. Your presence helps connect people and keep the culture active.",
+    cta: "Keep leading by example.",
+  },
   Observer: {
     headline: "Learning the system.",
     body: "You are developing an understanding of signal vs noise. Early interactions show you are starting to grasp how things work.",
     cta: "Take your time, understanding comes before impact.",
   },
+  HollywoodActor: {
+    headline: "Creative spotlight.",
+    body: "You bring flair and momentum to conversations. Your energy helps content stand out and keeps engagement alive.",
+    cta: "Keep bringing cinematic energy to the timeline.",
+  },
   RealOG: {
     headline: "Early presence, lasting value.",
     body: "You have been here since the early stages. Your presence is part of the foundation of the community.",
     cta: "Keep that energy, it matters long-term.",
+  },
+  KingOfTreasures: {
+    headline: "Value collector.",
+    body: "You gather and surface valuable pieces for the community. Your consistency helps others discover signal faster.",
+    cta: "Keep uncovering and sharing the gems.",
   },
   ServerBooster: {
     headline: "Infrastructure supporter.",
@@ -518,7 +554,10 @@ function drawTag(x, y, w, h, label, variant) {
     neutral: { bg: "rgba(239, 239, 239, 0.02)", border: "rgba(239, 239, 239, 0.18)", text: "#bcb9c7" },
     mod: { bg: "rgba(80, 179, 255, 0.2)", border: "rgba(80, 179, 255, 0.56)", text: "#7ac6ff" },
     chronicler: { bg: "rgba(101, 227, 128, 0.2)", border: "rgba(101, 227, 128, 0.56)", text: "#8bee9f" },
+    mumbassador: { bg: "rgba(255, 102, 102, 0.2)", border: "rgba(255, 120, 120, 0.56)", text: "#ff9a9a" },
     realog: { bg: "rgba(245, 148, 92, 0.2)", border: "rgba(245, 148, 92, 0.58)", text: "#f9b28a" },
+    hollywood: { bg: "rgba(255, 102, 102, 0.2)", border: "rgba(255, 120, 120, 0.56)", text: "#ff9a9a" },
+    kingtreasures: { bg: "rgba(247, 184, 79, 0.2)", border: "rgba(247, 184, 79, 0.56)", text: "#ffd08a" },
     booster: { bg: "rgba(185, 124, 255, 0.2)", border: "rgba(185, 124, 255, 0.58)", text: "#cda4ff" },
     verified: { bg: "rgba(101, 227, 128, 0.2)", border: "rgba(101, 227, 128, 0.56)", text: "#9bf1ab" },
     observer: { bg: "rgba(185, 124, 255, 0.22)", border: "rgba(185, 124, 255, 0.58)", text: "#caa0ff" },
