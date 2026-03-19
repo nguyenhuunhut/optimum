@@ -3,7 +3,7 @@ const GUILD_ID = "1354818163879182519";
 const REDIRECT_URI =
   window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
     ? window.location.origin + window.location.pathname
-    : "https://nguyenhuunhut.github.io/optimum/";
+    : "https://optimum.nhutnguyen.xyz/";
 
 const ROLE_IDS = {
   MOD: "1358825437790212153",
