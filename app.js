@@ -303,10 +303,23 @@ function createGuestProfile() {
 }
 
 function detectMatchedRoles(memberRoleIds) {
-  return ROLE_ORDER.filter((roleName) => {
-    const roleId = ROLE_IDS[roleName];
-    return roleId && !roleId.startsWith("REPLACE") && memberRoleIds.includes(roleId);
+  const memberRoleSet = new Set((memberRoleIds || []).map((id) => normalizeRoleId(id)));
+  const matched = ROLE_ORDER.filter((roleName) => {
+    const roleId = normalizeRoleId(ROLE_IDS[roleName]);
+    return roleId && !roleId.startsWith("REPLACE") && memberRoleSet.has(roleId);
   });
+
+  // Debug helper: helps verify why a role is not highlighted after login.
+  if (matched.length === 0) {
+    console.warn("No configured ROLE_IDS matched user roles.", {
+      memberRoles: [...memberRoleSet],
+      configuredRoleIds: Object.fromEntries(
+        Object.entries(ROLE_IDS).map(([key, value]) => [key, normalizeRoleId(value)])
+      ),
+    });
+  }
+
+  return matched;
 }
 
 function detectMainRole(matchedRoles) {
@@ -314,6 +327,10 @@ function detectMainRole(matchedRoles) {
     if (matchedRoles.includes(roleName)) return roleName;
   }
   return "No Role";
+}
+
+function normalizeRoleId(roleId) {
+  return String(roleId || "").trim();
 }
 
 async function fetchContributionStats(userId) {
