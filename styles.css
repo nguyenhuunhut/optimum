@@ -377,6 +377,17 @@ body {
   letter-spacing: 0.01em;
 }
 
+.footer-credit {
+  margin: 0;
+}
+
+.footer-disclaimer {
+  margin: 6px 0 0;
+  color: rgba(239, 239, 239, 0.48);
+  font-size: 0.8rem;
+  letter-spacing: 0;
+}
+
 @media (max-width: 760px) {
   .brand-row {
     align-items: center;
